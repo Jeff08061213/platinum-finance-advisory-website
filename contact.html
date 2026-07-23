@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Platinum Finance Advisory</title>
+<meta name="description" content="Get in touch with Platinum Finance Advisory for a free, no-obligation loan quote.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23000000%22/><text x=%2250%22 y=%2266%22 font-size=%2258%22 font-family=%22sans-serif%22 font-weight=%22900%22 fill=%22%23d9af52%22 text-anchor=%22middle%22>%E2%97%86</text></svg>">
+<link rel="stylesheet" href="css/styles.css?v=30">
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="container top-bar-inner">
+    <div class="top-bar-contact">
+      <a href="tel:+6590000000"><span class="label">Call</span>+65 9XXX XXXX</a>
+      <a href="mailto:hello@platinumfinance.sg"><span class="label">Email</span>hello@platinumfinance.sg</a>
+    </div>
+    <div class="top-bar-note">MAS-compliant advisory · Mon–Fri, 9am–6pm SGT</div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="nav-bar">
+    <a href="index.html" class="brand">
+      <span class="mark mark--glow">◆</span>
+      <span><span class="brand-name--glow">Platinum Finance Advisory</span><span class="tagline">Singapore trusted loan brokerage</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="products.html">Loan Products</a>
+      <a href="eligibility.html">Eligibility</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="contact.html#quote-form" class="btn btn-primary nav-cta-mobile">Get a Free Quote</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="contact.html#quote-form" class="btn btn-primary nav-cta">Get a Free Quote</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"></button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Contact</div>
+    <h1>Get in touch today</h1>
+    <p>We match you to the right lender and best rate — for free. No commitment required.</p>
+  </div>
+</section>
+
+<section class="section" id="quote-form">
+  <div class="container">
+    <div class="grid grid-2" style="align-items:start;gap:40px;">
+
+      <div class="card">
+        <h3>Enquiry / Free Quote Form</h3>
+        <p style="color:var(--text-muted);">Fields marked * are required.</p>
+        <form id="enquiry-form" novalidate>
+          <div class="field">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" data-required>
+            <div class="field-error">Please enter your name.</div>
+          </div>
+          <div class="field">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" data-required>
+            <div class="field-error">Please enter a valid email address.</div>
+          </div>
+          <div class="field">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" data-required>
+            <div class="field-error">Please enter your phone number.</div>
+          </div>
+          <div class="field">
+            <label for="loan-type">Loan Type Interested In *</label>
+            <select id="loan-type" name="loan-type" data-required>
+              <option value="">Select an option</option>
+              <option value="bank-business">Bank Business Loan</option>
+              <option value="private-funder">Private Funder Loan</option>
+              <option value="personal">Personal Loan</option>
+              <option value="not-sure">Not sure — need advice</option>
+            </select>
+            <div class="field-error">Please select a loan type.</div>
+          </div>
+          <div class="field">
+            <label for="amount">Estimated Loan Amount</label>
+            <input type="text" id="amount" name="amount" placeholder="e.g. S$50,000">
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us a bit more about what you need..."></textarea>
+          </div>
+          <div class="field checkbox-row">
+            <input type="checkbox" id="consent" name="consent" data-required>
+            <label for="consent">I agree to be contacted by Platinum Finance Advisory regarding my enquiry, in line with the <a href="privacy.html">Privacy Policy</a>. *</label>
+          </div>
+          <div class="field-error" style="margin-bottom:12px;">Please confirm you agree to be contacted.</div>
+          <button type="submit" class="btn btn-primary btn-block">Submit Enquiry</button>
+          <div id="form-status" class="form-status"></div>
+        </form>
+      </div>
+
+      <div class="stack" style="gap:24px;">
+        <div class="photo-placeholder photo-placeholder--wide">
+          <span class="photo-placeholder-label">Office / location photo</span>
+        </div>
+        <div class="card">
+          <h3>Contact Details</h3>
+          <div class="contact-rows" style="margin-top:14px;">
+            <div><span class="label">Phone</span><span class="value">+65 9XXX XXXX</span></div>
+            <div><span class="label">Email</span><span class="value">hello@platinumfinance.sg</span></div>
+            <div><span class="label">WhatsApp</span><span class="value">wa.me/6590000000</span></div>
+            <div><span class="label">Address</span><span class="value" style="color:var(--text);font-weight:500;">1 Raffles Place, Singapore 048616</span></div>
+            <div><span class="label">Hours</span><span class="value" style="color:var(--text);font-weight:500;">Mon – Fri, 9am – 6pm SGT</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>What happens after you apply</h3>
+          <ul class="stack check-list" style="margin-top:10px;">
+            <li>We review your enquiry the same business day</li>
+            <li>Advisor calls to understand your full needs</li>
+            <li>We shortlist the best-fit lender options for you</li>
+            <li>You decide — zero pressure, zero obligation</li>
+            <li>We manage application through to disbursement</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Follow Us</h3>
+          <p style="color:var(--text-muted);">Stay updated on loan tips and offers.</p>
+          <div class="social-row" style="margin-top:6px;">
+            <a href="#" aria-label="Facebook" target="_blank" rel="noopener">f</a>
+            <a href="#" aria-label="Instagram" target="_blank" rel="noopener">ig</a>
+            <a href="#" aria-label="TikTok" target="_blank" rel="noopener">tt</a>
+          </div>
+        </div>
+
+        <div class="pending">
+          <span class="pending-label">⚠ Setup Note</span>
+          <p>This enquiry form currently only validates input in the browser — it does not yet send anywhere. Connect it to an email service (e.g. Formspree, Netlify Forms) or a backend endpoint before launch so enquiries actually reach you.</p>
+          <p>Phone, email, WhatsApp and address above are placeholders from your PDF — swap in the real live numbers/inbox before publishing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container" style="max-width:820px;">
+    <div class="dnc-block">
+      <span class="eyebrow" style="margin-bottom:6px;">PDPA — Do Not Call Registry</span>
+      <h3 style="margin-bottom:8px;">Opt out of marketing calls or messages</h3>
+      <p style="color:var(--text-muted);margin-bottom:0;">If you'd rather we didn't contact you for marketing purposes, register your number here. This does not affect an active enquiry you've already submitted.</p>
+      <form novalidate>
+        <div class="dnc-fields">
+          <div class="field">
+            <label for="dnc-name">Name</label>
+            <input type="text" id="dnc-name" name="dnc-name">
+          </div>
+          <div class="field">
+            <label for="dnc-contact">Contact Number</label>
+            <input type="tel" id="dnc-contact" name="dnc-contact">
+          </div>
+          <div class="field">
+            <label for="dnc-email">Email</label>
+            <input type="email" id="dnc-email" name="dnc-email">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-outline" style="margin-top:16px;">Submit Opt-Out Request</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="brand">
+          <span class="mark">◆</span>
+          <span>Platinum Finance Advisory<span class="tagline">Singapore trusted loan brokerage</span></span>
+        </a>
+        <p class="about-blurb">Platinum Finance Advisory compares business and personal loan packages from 20+ banks and Private Funders in Singapore, matching you to the best rate — free, fast, and fully confidential.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook" target="_blank" rel="noopener">f</a>
+          <a href="#" aria-label="Instagram" target="_blank" rel="noopener">ig</a>
+          <a href="#" aria-label="TikTok" target="_blank" rel="noopener">tt</a>
+        </div>
+      </div>
+      <div>
+        <h4>Loan Products</h4>
+        <ul>
+          <li><a href="property-loans.html">Property-Backed Loans</a></li>
+          <li><a href="working-capital-financing.html">Working Capital & Invoice Financing</a></li>
+          <li><a href="personal-loans.html">Personal Loans</a></li>
+          <li><a href="products.html">Compare All Options</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="eligibility.html">Eligibility</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in Touch</h4>
+        <ul>
+          <li><span class="footer-label">Phone</span><span class="contact-value">+65 9XXX XXXX</span></li>
+          <li><span class="footer-label">Email</span><span class="contact-value">hello@platinumfinance.sg</span></li>
+          <li><span class="footer-label">WhatsApp</span><span class="contact-value">wa.me/6590000000</span></li>
+          <li><span class="footer-label">Address</span>1 Raffles Place, Singapore 048616</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Platinum Finance Advisory Pte. Ltd. All rights reserved.</span>
+      <span><a href="terms.html">Terms &amp; Conditions</a> · <a href="privacy.html">Privacy Policy</a></span>
+    </div>
+  </div>
+  <div class="disclaimer-bar">
+    <div class="container">
+      <p>Does not lend money directly. All referrals to MAS-regulated banks or licensed moneylenders under the Moneylenders Act (Cap. 188). Zero broker fees. PDPA compliant.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
