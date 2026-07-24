@@ -30,14 +30,32 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* Contact / quote form validation (front-end only — see note in contact.html) */
-  const form = document.querySelector("#enquiry-form");
-  if (form) {
-    form.addEventListener("submit", (e) => {
+  /* Submit a form via AJAX to its Formspree endpoint (set in the form's action="") */
+  function submitToFormspree(form, status, { onSuccess, onError }) {
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { Accept: "application/json" },
+    })
+      .then((response) => {
+        if (response.ok) {
+          onSuccess();
+          form.reset();
+        } else {
+          onError();
+        }
+      })
+      .catch(() => onError());
+  }
+
+  /* Enquiry / quote form: validate, then send via Formspree */
+  const enquiryForm = document.querySelector("#enquiry-form");
+  if (enquiryForm) {
+    enquiryForm.addEventListener("submit", (e) => {
       e.preventDefault();
       let valid = true;
 
-      form.querySelectorAll("[data-required]").forEach((field) => {
+      enquiryForm.querySelectorAll("[data-required]").forEach((field) => {
         const wrapper = field.closest(".field");
         const value = field.value.trim();
         let fieldValid = value.length > 0;
@@ -60,11 +78,48 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // NOTE: This form is front-end only. Wire it up to an email service
-      // (e.g. Formspree, Netlify Forms) or your own backend before going live.
-      status.textContent = "Thanks — your enquiry has been noted. (Demo only: connect this form to an email service or backend to actually receive enquiries.)";
-      status.className = "form-status success";
-      form.reset();
+      status.textContent = "Sending...";
+      status.className = "form-status";
+      submitToFormspree(enquiryForm, status, {
+        onSuccess: () => {
+          status.textContent = "Thanks — your enquiry has been received. An advisor will get back to you the same business day.";
+          status.className = "form-status success";
+        },
+        onError: () => {
+          status.textContent = "Something went wrong sending your enquiry. Please email us directly or try again.";
+          status.className = "form-status error";
+        },
+      });
+    });
+  }
+
+  /* PDPA Do Not Call opt-out form: send via Formspree */
+  const dncForm = document.querySelector("#dnc-form");
+  if (dncForm) {
+    dncForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const status = document.querySelector("#dnc-form-status");
+      const hasContact = ["dnc-name", "dnc-contact", "dnc-email"].some(
+        (id) => document.getElementById(id).value.trim().length > 0
+      );
+      if (!hasContact) {
+        status.textContent = "Please fill in at least your name and contact number or email.";
+        status.className = "form-status error";
+        return;
+      }
+
+      status.textContent = "Sending...";
+      status.className = "form-status";
+      submitToFormspree(dncForm, status, {
+        onSuccess: () => {
+          status.textContent = "Your opt-out request has been received.";
+          status.className = "form-status success";
+        },
+        onError: () => {
+          status.textContent = "Something went wrong sending your request. Please email us directly or try again.";
+          status.className = "form-status error";
+        },
+      });
     });
   }
 
@@ -117,6 +172,29 @@ document.addEventListener("DOMContentLoaded", () => {
     );
     counterObserver.observe(el);
   });
+
+  /* Mouse-follow spotlight glow in the hero / page-hero banner */
+  document.querySelectorAll(".hero, .page-hero").forEach((heroEl) => {
+    heroEl.addEventListener("pointermove", (e) => {
+      const rect = heroEl.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      heroEl.style.setProperty("--mx", x + "%");
+      heroEl.style.setProperty("--my", y + "%");
+    });
+  });
+
+  /* Scroll-aware navbar (subtle shadow + opacity once the page has scrolled) */
+  const siteHeader = document.querySelector(".site-header");
+  if (siteHeader) {
+    window.addEventListener(
+      "scroll",
+      () => {
+        siteHeader.classList.toggle("is-scrolled", window.scrollY > 30);
+      },
+      { passive: true }
+    );
+  }
 
   /* Sticky mobile "Get a Free Quote" bar (hidden on the Contact page itself) */
   if (!location.pathname.endsWith("contact.html")) {
